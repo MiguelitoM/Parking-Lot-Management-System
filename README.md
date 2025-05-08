@@ -1,4 +1,4 @@
-# 🚙 Parking Management System in C
+# 🚙 Parking Lot Management System
 
 ## 🔍 Overview
 This project is a C-based command-line system developed for the *Introduction to Data Structures and Algorithms)* course. It manages multiple parking lots, vehicle entries and exits, and billing, following a set of predefined rules.
