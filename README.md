@@ -1,44 +1,62 @@
-# 🚀 C Project Overview
+# 🅿️ Parking Management System in C
 
-## 📝 Project Summary
+## 📋 Project Overview
 
-This project, written in C, is designed for performance and correctness. While the problem statement is provided in detail in the `enunciado.md` file, the project involves reading structured inputs, performing algorithmic computations, and producing validated outputs — likely in the context of systems or algorithmic programming.
+This project is a C-based command-line system developed for the **IAED (Data Structures and Algorithms)** course. It manages multiple parking lots, vehicle entries and exits, and billing, following a set of predefined rules.
 
-The build is optimized and adheres to strict compilation flags to ensure code quality and error checking.
+The system supports a maximum of 20 car parks and interacts through a series of commands provided line-by-line. Users can create parks, record vehicle activity, view reports, and calculate daily revenues. Special billing rules are applied, including tiered pricing per time interval and exceptions for leap years.
 
 ---
 
-## ⚙️ How to Compile
+## ⚙️ How to Compile and Run
 
-Open a terminal in the root directory of the project and run:
-
+To compile the program:
 ```bash
 gcc -O3 -Wall -Wextra -Werror -Wno-unused-result -o proj1 *.c
 ```
 
-### What each flag means:
-
-- `-O3` – Enables high-level optimizations for performance.
-- `-Wall` – Activates most warning messages.
-- `-Wextra` – Enables extra warning messages not included in `-Wall`.
-- `-Werror` – Treats all warnings as errors (forces cleaner code).
-- `-Wno-unused-result` – Suppresses warnings for ignored return values (often useful for scanf/fgets).
-- `-o proj1` – Names the output binary `proj1`.
-- `*.c` – Compiles all `.c` files in the directory.
-
----
-
-## 🧪 Running Public Tests
-
-After compiling the project, navigate to the `public-tests` directory and run:
-
+To run the public test suite:
 ```bash
 cd public-tests
 make
 ```
 
-This command will execute the `Makefile` provided in the test folder, typically running all available public test cases against your compiled program.
+---
 
-Make sure the binary `proj1` exists in the parent directory or as specified in the `Makefile`.
+## 🧾 Available Commands
+
+The interpreter accepts the following commands:
+
+- `q`  
+  **Quits** the program.
+
+- `p`  
+  Without arguments: lists existing parks.  
+  With arguments: adds a new parking lot with capacity and pricing model.
+
+- `e <park-name> <license-plate> <date> <time>`  
+  Registers a vehicle **entry**.
+
+- `s <park-name> <license-plate> <date> <time>`  
+  Registers a vehicle **exit** and prints billing.
+
+- `v <license-plate>`  
+  Lists **all park entries and exits** for a given vehicle.
+
+- `f <park-name> [<date>]`  
+  Shows **revenue** for a park: a summary by day or detailed billing for a specific date.
+
+- `r <park-name>`  
+  **Removes** a parking lot and all associated data.
+
+The program reads commands from standard input and returns output to standard output. It stops only when the command `q` is entered.
 
 ---
+
+## 📎 Notes
+
+- Vehicle license plates must follow strict formatting rules.
+- Dates and times must follow the chronological order of records.
+- Billing is calculated based on tiered 15-minute intervals, capped daily.
+- On **February 29**, no charges apply.
+
