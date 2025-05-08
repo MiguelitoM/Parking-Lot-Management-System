@@ -30,12 +30,12 @@ The program reads commands from standard input and returns output to standard ou
   Removes a parking lot and all associated data.
 
 ## ⚙️ Compile and Run
-To compile the program:
+Compile the program:
 ```bash
 gcc -O3 -Wall -Wextra -Werror -Wno-unused-result -o proj1 *.c
 ```
 
-To run the public test suite:
+Run the tests:
 ```bash
 cd public-tests
 make
